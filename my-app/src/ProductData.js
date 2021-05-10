@@ -7,7 +7,8 @@ const product_card = [
         product_name:"Japani Joota",
         description:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, vero.",
         price:91,
-        img:{photo1}
+        img:{photo1},
+        quantity:0
     },
 
     {
@@ -15,7 +16,8 @@ const product_card = [
         product_name:"Kala Chashma",
         description:"vbnm snbfkj jekfqwj  wjfbwfn",
         price:92,
-        img:{photo1}
+        img:{photo1},
+        quantity:0
     },
 
     {
@@ -23,7 +25,8 @@ const product_card = [
         product_name:"Laal topi",
         description:"vbnm snbfkj jekfqwj  wjfbwfn",
         price:93,
-        img:{photo1}
+        img:{photo1},
+        quantity:0
     },
 
     {
@@ -31,7 +34,8 @@ const product_card = [
         product_name:"Bikaneri Bhujia",
         description:"vbnm snbfkj jekfqwj  wjfbwfn",
         price:94,
-        img:{photo1}
+        img:{photo1},
+        quantity:0
     },
 
     {
@@ -39,7 +43,8 @@ const product_card = [
         product_name:"Tableau",
         description:"vbnm snbfkj jekfqwj  wjfbwfn",
         price:95,
-        img:{photo1}
+        img:{photo1},
+        quantity:0
     }
 ]
 
