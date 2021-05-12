@@ -6,6 +6,8 @@ import { useContext } from "react";
 import { useState } from "react";
 import { CartContext } from "./cart-context";
 import { useCart } from "./cart-context";
+import {CartHeader} from "./cart"
+import {Cart} from "./cart";
 
 
 function ShowItem({ item }) {
@@ -17,59 +19,6 @@ function ShowItem({ item }) {
       <h2>{item.name}</h2>
       <p>Rs {item.price}</p>
     </div>
-  );
-}
-
-export function CartHeader() {
-  const { itemsInCart } = useCart();
-  return <h3>Items in Cart {itemsInCart.length}</h3>;
-}
-
-function Cart() {
-  
-  const { product_card,itemsInCart, counter, dispatch: cartDispatch } = useCart();
-  <h1 onClick={() => cartDispatch()}>Cart count {counter} </h1>
-  return (
-    <>
-    <>
-      <h1 onClick={() => cartDispatch()}>Cart count {counter} </h1>
-      <ul className="list-group">
-        {product_card.map((item) => {
-          return (
-            <li className="list-group-item">
-              {item.name}
-              <p>{item.price}</p>
-              <button
-                className="btn-primary-sm pd-quarter"
-                onClick={() =>{
-                  cartDispatch({ type: "INCREMENT", payload: item })
-                  alert("button working")
-                }               
-                }
-              >
-                +
-              </button>
-              {item.quantity}
-              <button
-                className="btn-secondary-sm pd-quarter"
-                onClick={() =>
-                  cartDispatch({ type: "DECREMENT", payload: item })                
-                }
-              >
-                -
-              </button>
-              <button
-                onClick={() => cartDispatch({ type: "REMOVE", payload: item }) 
-                }
-              >
-                Remove From Cart
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    </>
-    </>
   );
 }
 
