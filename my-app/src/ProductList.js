@@ -1,13 +1,16 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import "./ProductList.css";
-import { useCart } from "./cart-context";
+import { useCart } from "./CartContext";
 import photo1 from "./images/photo1.jpg";
 import SideBar from "./SideBar";
 import ProductData from "./ProductData";
 import product_card from "./ProductData";
 
+
 const MainContent = () => {
-    const { setItemsInCart } = useCart();
+    const { dispatch:cartDispatch } = useCart();
     console.log(product_card)
     const samanList = product_card.map((item)=>
     <div className="card-list">
@@ -18,13 +21,14 @@ const MainContent = () => {
      <div class="card-details">
          <h3>{item.name}</h3>
          <p>{item.description}</p>
-     <div class="like-btn-holder">
+     <div onClick={()=>cartDispatch({type:"ADD_TO_WISHLIST",payload:item})} class="like-btn-holder">
          <p>{item.price}</p>
          <button class="like-btn">
-         <i class="far fa-lg fa-heart"></i>
+         <FontAwesomeIcon icon={faHeart} size="2x" className="heartIcon" />
          </button>
      </div>
-         <button onClick={()=>setItemsInCart((items)=>[...items,item])} class="buy-btn">Shop Now</button>
+     <button onClick={()=>cartDispatch({type:"ADD",payload:item})} class="buy-btn">Add to cart</button>
+     {/* <button onClick={()=>cartDispatch({type:"ADD_TO_WISHLIST",payload:item})} class="buy-btn">Add to wishlist</button> */}
      </div>
     </div>
  

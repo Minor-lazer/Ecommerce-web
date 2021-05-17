@@ -4,10 +4,12 @@ import SideBar from "./SideBar";
 import  MainContent from "./ProductList";
 import { useContext } from "react";
 import { useState } from "react";
-import { CartContext } from "./cart-context";
-import { useCart } from "./cart-context";
-import {CartHeader} from "./cart"
-import {Cart} from "./cart";
+import { CartContext } from "./CartContext";
+import { useCart } from "./CartContext";
+import {Store} from "./Cart";
+import {WishlistStore} from "./Wishlist";
+
+
 
 
 function ShowItem({ item }) {
@@ -35,10 +37,11 @@ export default function App()
     <h1 className="app-header">eCommerce</h1>
     <button onClick={() => setRoute("products")}>Products</button>
     <button onClick={() => setRoute("cart")}>Cart</button>
+    <button onClick={()=>setRoute("wishlist")}>Wishlist</button>
     <div className="flow">
         <SideBar/>
-        <CartHeader />
-        {route === "cart" && <Cart />}
+        {route === "cart" && <Store/>}
+        {route === "wishlist" && <WishlistStore/>}
         {route === "products" && <MainContent/>}
     </div>
     </div>

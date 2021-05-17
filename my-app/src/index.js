@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
-import { CartContext } from "./cart-context";
-import { CartProvider } from "./cart-context";
+import { CartContext } from "./CartContext";
+import { CartProvider } from "./CartContext";
 
 import App from "./App";
 
