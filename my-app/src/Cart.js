@@ -14,7 +14,7 @@ import { useCart , cartItem,DEFAULT_STATE} from "./CartContext";
 //     // return <h3>Items in Cart {cartItems.length}</h3>;
 //   }
   
-const CartItem = ({item}) => {
+export const CartItem = ({item}) => {
   
     const {dispatch: cartDispatch} = useCart();
     // console.log(itemsInCart);
