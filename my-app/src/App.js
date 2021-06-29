@@ -1,14 +1,21 @@
 import "./index.css";
 import "./App.css";
+import React from "react";
 import SideBar from "./SideBar";
+import {WishlistItem} from "./Wishlist.js" 
 import  MainContent from "./ProductList";
-import { useContext } from "react";
-import { useState } from "react";
-import { CartContext } from "./CartContext";
-import { useCart } from "./CartContext";
-import {Store} from "./Cart";
+import {useContext} from "react";
+import {useState} from "react";
+import {CartContext} from "./CartContext";
+import {useCart} from "./CartContext";
+import {Store,cartItem} from "./Cart";
 import {WishlistStore} from "./Wishlist";
-
+import NavBar from "./Components/Navbar/NavBar";
+// import { Login } from "./Pages/LoginPage";
+import {PrivateRoute} from "./PrivateRoute";
+import{Routes,Route} from "react-router-dom";
+ import {Login} from "./Pages/Login/LoginPage"
+import { dom } from "@fortawesome/fontawesome-svg-core";
 
 
 
@@ -34,15 +41,32 @@ export default function App()
   const [route, setRoute] = useState("products");
   return (
     <div className="App">
+   {/* <NavBar/> */}
     <h1 className="app-header">eCommerce</h1>
     <button onClick={() => setRoute("products")}>Products</button>
     <button onClick={() => setRoute("cart")}>Cart</button>
     <button onClick={()=>setRoute("wishlist")}>Wishlist</button>
     <div className="flow">
-        <SideBar/>
-        {route === "cart" && <Store/>}
-        {route === "wishlist" && <WishlistStore/>}
-        {route === "products" && <MainContent/>}
+       <NavBar/> 
+       <SideBar/> 
+        {/* {route === "cart" && <Store/>}  */}
+        {/* {route === "wishlist" && <WishlistStore/>}  */}
+        {/* {route === "products" && <MainContent/>} */}
+
+        <Routes>
+        <Route path="/" element = {<MainContent/>}/>
+
+        <Route exact path="/login" element={<Login/>}/>
+
+        <PrivateRoute path="/wishlist">
+          <WishlistStore/>
+        </PrivateRoute>
+
+        <privateRoute path="/cart">
+          <Store/>
+        </privateRoute>
+
+        </Routes>
     </div>
     </div>
   );

@@ -25,7 +25,7 @@ const product_card = [
         name:"Laal topi",
         description:"vbnm snbfkj jekfqwj  wjfbwfn",
         price:93,
-        img:{photo1},
+        img: {photo1},
         quantity:0
     },
 
@@ -34,7 +34,7 @@ const product_card = [
         name:"Bikaneri Bhujia",
         description:"vbnm snbfkj jekfqwj  wjfbwfn",
         price:94,
-        img:{photo1},
+        img:"https://massdrop-s3.imgix.net/product-images/drop-sennheiser-pc38x-gaming-headset/FP/CeH9BYVoTniYOsScfzZ0_PC.png?auto=format&fm=jpg&fit=fill&w=300&h=300&bg=f0f0f0&fill=solid&fill-color=f0f0f0&dpr=1&q=70",
         quantity:0
     },
 
