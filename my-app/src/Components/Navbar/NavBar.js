@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartArrowDown, faCoffee, faSearch, faShoppingBag, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import {PrivateRoute} from "../../PrivateRoute";
 import {Link,Routes,Route,useNavigate} from "react-router-dom";
-import {WishlistItem} from "../../Wishlist"
+import {WishlistItem} from "../../Pages/Private/Wishlist.js";
 import {Address} from "../../Pages/Private/Address";
 
 
@@ -21,7 +21,8 @@ export const NavBar = () =>
     }
     )
 
-    return ( 
+    return (
+       
       <nav className="navbar">
         <div className="container--center">
            
@@ -49,13 +50,13 @@ export const NavBar = () =>
         <div className = "container-center">
           <Link to="/products" className="nav-icon-label-container">
           <div className="avatar-badge-container" role="button">
-            <div  
-               className="avatar-noborder container-center"
-               style = {{fonstSize:"0.6rem" ,width:"2rem"}}
-            >
-              <i className="fa fa-search"></i>
+             <div  
+                className="avatar-noborder container-center"
+                style = {{fonstSize:"0.6rem" ,width:"2rem"}}
+             > 
+               <i className="fa fa-search"></i>
 
-            </div>
+             </div>
           </div>
           <p className="nav=icon-label">Search</p>
 
@@ -78,6 +79,7 @@ export const NavBar = () =>
              <FontAwesomeIcon icon={{faCartArrowDown}}/> 
              <p className="nav-icon-label">Wishlist</p> 
            </Link>
+
            <Link to="/cart" className="nav-icon-label-container">
              <div className="avatar-badge-container" role="button">
                <div
@@ -154,7 +156,7 @@ export const NavBar = () =>
           </ul> */}
       </nav>
     );
-};
+}
 
     
 

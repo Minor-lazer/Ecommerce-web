@@ -2,18 +2,18 @@ import "./index.css";
 import "./App.css";
 import React from "react";
 import SideBar from "./SideBar";
-import {WishlistItem} from "./Wishlist.js" 
+import {WishlistItem} from "../src/Pages/Private/Wishlist.js"
 import  MainContent from "./ProductList";
 import {useContext} from "react";
 import {useState} from "react";
 import {CartContext} from "./CartContext";
 import {useCart} from "./CartContext";
-import {Store,cartItem} from "./Cart";
-import {WishlistStore} from "./Wishlist";
+import {Cart,cartItem} from "./Pages/Private/Cart";
+import {WishlistStore} from "./Pages/Private/Wishlist";
 import NavBar from "./Components/Navbar/NavBar";
 // import { Login } from "./Pages/LoginPage";
 import {PrivateRoute} from "./PrivateRoute";
-import{Routes,Route} from "react-router-dom";
+import{BrowserRouter as Router ,Routes,Route} from "react-router-dom";
  import {Login} from "./Pages/Login/LoginPage"
 import { dom } from "@fortawesome/fontawesome-svg-core";
 
@@ -47,26 +47,26 @@ export default function App()
     <button onClick={() => setRoute("cart")}>Cart</button>
     <button onClick={()=>setRoute("wishlist")}>Wishlist</button>
     <div className="flow">
-       <NavBar/> 
+    <NavBar/> 
        <SideBar/> 
         {/* {route === "cart" && <Store/>}  */}
         {/* {route === "wishlist" && <WishlistStore/>}  */}
         {/* {route === "products" && <MainContent/>} */}
 
-        <Routes>
+      <Routes>
         <Route path="/" element = {<MainContent/>}/>
 
         <Route exact path="/login" element={<Login/>}/>
 
         <PrivateRoute path="/wishlist">
           <WishlistStore/>
-        </PrivateRoute>
+        </PrivateRoute> 
 
         <privateRoute path="/cart">
-          <Store/>
+          <Cart/>
         </privateRoute>
 
-        </Routes>
+      </Routes>
     </div>
     </div>
   );
