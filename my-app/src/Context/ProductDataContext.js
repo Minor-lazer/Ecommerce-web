@@ -35,9 +35,10 @@ export function productDataProvider ({children}) {
                   return (state = {...state,sortBy:action.payload });
                 
                 case "TOTAL_PRICE_RANGE":
-                    return ( 
-                        ...state,
-                        maxValue:action.payload,
+                    return (
+                        null 
+                        // ...state,
+                        // maxValue:action.payload,
                     );
                 default:
                     return state;
@@ -80,12 +81,21 @@ export function productDataProvider ({children}) {
 
         const getFilteredData = getFilteredData(sortedData,{showFastDeliveryOnly,showInventoryAll});
 
-        return ( 
-            <>
-            <fieldset>
-                <legend>SORT</legend>
-                <label>
-                    <input 
+        function getProductDataById(id) { 
+            return 
+        }
+
+        return (
+            
+            <productDataContext.provider value = {{dispatch,maxValu,filteredData,showInventoryAll,fastDeliveryOnly,sortBy,getProductDataById,initializeData}}>
+            {children}
+            </productDataContext.provider>
+
+             {/* <>
+             <fieldset>
+                 <legend>SORT</legend>
+                 <label>
+                     <input 
                     type = "radio"
                     name = "sort"
                     onChange={()=>dispatch({type:"SORT",payload:"PRICE_HIGH_TO_LOW"})}
@@ -132,9 +142,6 @@ export function productDataProvider ({children}) {
                  </label>
            
             </fieldset>
-            </>
+            </> */}
         )
-
-
-
 }
