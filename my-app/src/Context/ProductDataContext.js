@@ -1,5 +1,5 @@
 import { 
-    useCotext,
+    useContext,
     createContext,
     useState,
     useReducer,

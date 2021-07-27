@@ -48,7 +48,7 @@ export default function App()
     <button onClick={()=>setRoute("wishlist")}>Wishlist</button>
     <div className="flow">
     <NavBar/> 
-       <SideBar/> 
+       {/* <SideBar/>  */}
         {/* {route === "cart" && <Store/>}  */}
         {/* {route === "wishlist" && <WishlistStore/>}  */}
         {/* {route === "products" && <MainContent/>} */}

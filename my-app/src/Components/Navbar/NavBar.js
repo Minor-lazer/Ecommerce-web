@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {navlinks} from "./NavLink";
 import "./NavBar.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -11,8 +11,40 @@ import {Address} from "../../Pages/Private/Address";
 
 export const NavBar = () =>
 {
-
+  
+    const [hamburgerStyles,setHamburgerStyles] = useState("hamburger-menu pointer");
+    const [menuStyles,setMenuStyles] = useState("menu hide-menu");
+    // const {cart} = useCart();
+    // const {wishlist} = useWishlist();
     const navigate = useNavigate();
+
+    // const carCount = cart.reduce((acc,curr) =>{ 
+    //   return acc + curr.quantity
+    // },0);
+
+    function hamburgerclickHandler() 
+    {
+      if(hamburgerStyles.includes("click"))
+      {
+        setHamburgerStyles("hamburger-menu pointer");
+        setMenuStyles("menu hide-menu");
+      }
+      else 
+      {
+        setHamburgerStyles("Hamburger-menu pointer click");
+        setMenuStyles("menu show-menu");
+      }
+    };
+
+    const menuHandler = () => 
+    {
+      setHamburgerStyles("hamburger-menu pointer");
+      setMenuStyles("menu hide-menu")
+    };
+
+
+
+
     const links = () => navlinks.map((item)=> 
     {
     <li key={item.id}> 
@@ -27,8 +59,8 @@ export const NavBar = () =>
         <div className="container--center">
            
            <div 
-            //className={hamburgerStyles}
-            //onClick={hamburgerclickHandler}
+            className={hamburgerStyles}
+            onClick={hamburgerclickHandler}
             id="button--menu"
             role="button"
            >
@@ -107,7 +139,7 @@ export const NavBar = () =>
            </Link>
           </div>
 
-          {/* <ul id="menu">
+          <ul className = {menuStyles} onClick = {menuHandler} id="menu">
             <li className="menu-item">
               <b>
               <Link to="/products" className="link-to">Products</Link>
@@ -153,7 +185,7 @@ export const NavBar = () =>
             
 
 
-          </ul> */}
+          </ul>
       </nav>
     );
 }

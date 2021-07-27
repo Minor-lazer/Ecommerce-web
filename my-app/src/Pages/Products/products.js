@@ -8,7 +8,7 @@ function useQuery()
 {
     return new URLSearchParams(useLocation.search);
 
-}
+}s
 
 export function products() { 
     const [searchText,setSearchText] = useState("");
@@ -18,7 +18,7 @@ export function products() {
     const query = useQuery();
     const {showToas} = useToast()
 
-    const {dispatch,filterData,maxValue,showInventoryAll,showFastDeliveryOnly,} = useProductsData();
+    const {dispatch,filteredData,maxValue,showInventoryAll,showFastDeliveryOnly,} = useProductsData();
 
     useEffect(()=>{
     searchInput.current.focus();
@@ -93,10 +93,44 @@ export function products() {
 
                 </label>
                </div>
+               <div class = "container container-slider">
+                   <p className = "container-title">Price Range</p>
+                   <input 
+                    type = "range"
+                    min = "50"
+                    max = "1000"
+                    value = {maxValue}
+                    className = "slider" 
+                    id = "myRange"
+                    onChange = {(e) => 
+                    {
+                        dispatch ({ 
+                            type:"TOGGLE_PRICE_RANGE",
+                            payload : e.target.value,
+                        })
+                    }}
+                />
+                <p>
+                    value:<span id="demo">${maxValye}</span>
+                </p>
+               </div>
         
+         </div>
+         <h3>Products {query.get("category")}</h3>
+         <br/>
+         <div class = "product-cards-container">
+             { searchText === "" ? filteredData.map((product)=> { 
+                 return <ProductCard product = {product}/>
+             }) : result.map((product)=> 
+             {
+                 return <ProductCard product = {product}/>
+             })
+
+             }
+         </div>
          </div>
 
      </div>
- )   
+ );   
 
 }
