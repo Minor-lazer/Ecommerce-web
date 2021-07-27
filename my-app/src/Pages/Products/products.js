@@ -46,8 +46,54 @@ export function products() {
              <input 
                id = "name"
                type = "search"
-               value = {seacrR}
+               value = {searchText}
+               class = "input-area"
+               style = {{bordeRadius : "0px"}}
+               onChange = {(e) => { 
+                   setSearchText (e.target.value);
+                   showToast("changed")
+               }}
+            ></input>
+            <label for = "name" style = {{visibility: searchText === ""?"visible" : "hidden" ,}}>Search</label>
+
              </div>
+             <button 
+              clasName = "btn btm-primary"
+              stylem = {{width:"20%", margin:"0",borderRadius : "0px"}} 
+             
+             > 
+             <i class = "fa fa-search" aria-hidden = "true" ></i>
+
+             </button>
+         </div>
+
+         <div className = "container-sort-filter-wrapper">
+             <div className = "container container-sort">
+                 <select 
+                 onChange = {(e) => 
+                 dispatch ({type:"SORT" , payload:e.target.value})
+                 }
+                name = "sort"
+                id = "sort"
+                >
+                    <option value = "" >Newest First</option>
+                    <option value = "PRICE_HIGH_TO_LOW">Price highh to low</option>
+                    <option value = "PRICE_LOW_TO_HIGH">Price low to high</option>
+                </select>
+               </div>
+               <div clasName = "container container-filter">
+                <p className ="container-title" > Filter By </p>
+                <label>
+                    <input 
+                     type = "checkbox"
+                     className = "checkbox"
+                     checked = {showInventoryAll}
+                     onChange = {() => dispatch ({type:"TOGGLE_INVENTORY"})}
+                     />
+
+                </label>
+               </div>
+        
          </div>
 
      </div>
