@@ -15,7 +15,9 @@ import NavBar from "./Components/Navbar/NavBar";
 import {PrivateRoute} from "./PrivateRoute";
 import{BrowserRouter as Router ,Routes,Route} from "react-router-dom";
  import {Login} from "./Pages/Login/LoginPage"
+ import {Banner} from "./Components/Banner/Banner.js"
 import { dom } from "@fortawesome/fontawesome-svg-core";
+import {CategoryCard} from "./Components/CategoryCard/CategoryCard.js";
 
 
 
@@ -47,14 +49,18 @@ export default function App()
     <button onClick={() => setRoute("cart")}>Cart</button>
     <button onClick={()=>setRoute("wishlist")}>Wishlist</button>
     <div className="flow">
-    <NavBar/> 
+    <NavBar/>
+    <Banner/> 
        {/* <SideBar/>  */}
         {/* {route === "cart" && <Store/>}  */}
         {/* {route === "wishlist" && <WishlistStore/>}  */}
         {/* {route === "products" && <MainContent/>} */}
 
       <Routes>
-        <Route path="/" element = {<MainContent/>}/>
+
+        <Route exact path="/" element={<CategoryCard/>}/>
+
+        <Route path="/products" element = {<MainContent/>}/>
 
         <Route exact path="/login" element={<Login/>}/>
 

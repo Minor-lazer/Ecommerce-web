@@ -13,7 +13,7 @@ const MainContent = () => {
     const { dispatch:cartDispatch } = useCart();
     console.log(product_card)
     const samanList = product_card.map((item)=>
-    <div className="card-list">
+    <div style={{display:"inline-block"}}className="card-list">
 
     <div class="card-box">
      <img class="card-image" src={photo1}/>
