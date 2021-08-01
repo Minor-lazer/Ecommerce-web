@@ -1,25 +1,84 @@
-import logo from './logo.svg';
-import './App.css';
+import "./index.css";
+import "./App.css";
+import React from "react";
+import SideBar from "./SideBar";
+import {WishlistItem} from "../src/Pages/Private/Wishlist.js"
+import  MainContent from "./ProductList";
+import {useContext} from "react";
+import {useState} from "react";
+import {CartContext} from "./CartContext";
+import {useCart} from "./CartContext";
+import {Cart,cartItem} from "./Pages/Private/Cart";
+import {WishlistStore} from "./Pages/Private/Wishlist";
+import NavBar from "./Components/Navbar/NavBar";
+// import { Login } from "./Pages/LoginPage";
+import {PrivateRoute} from "./PrivateRoute";
+import{BrowserRouter as Router ,Routes,Route} from "react-router-dom";
+ import {Login} from "./Pages/Login/LoginPage"
+ import {Banner} from "./Components/Banner/Banner.js"
+import { dom } from "@fortawesome/fontawesome-svg-core";
+import {CategoryCard} from "./Components/CategoryCard/CategoryCard.js";
 
-function App() {
+
+
+function ShowItem({ item }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-        </a>
-      </header>
+    <div
+      key={item.id}
+      style={{ margin: "1rem", padding: "1rem", border: "1px solid" }}
+    >
+      <h2>{item.name}</h2>
+      <p>Rs {item.price}</p>
     </div>
   );
 }
 
-export default App;
+function Products() {
+  return <h1> Products </h1>;
+}
+
+export default function App()
+{     
+
+  const [route, setRoute] = useState("products");
+  return (
+    <div className="App">
+   {/* <NavBar/> */}
+    <h1 className="app-header">eCommerce</h1>
+    <button onClick={() => setRoute("products")}>Products</button>
+    <button onClick={() => setRoute("cart")}>Cart</button>
+    <button onClick={()=>setRoute("wishlist")}>Wishlist</button>
+    <div className="flow">
+    <NavBar/>
+    <Banner/> 
+       {/* <SideBar/>  */}
+        {/* {route === "cart" && <Store/>}  */}
+        {/* {route === "wishlist" && <WishlistStore/>}  */}
+        {/* {route === "products" && <MainContent/>} */}
+
+      <Routes>
+
+        <Route exact path="/" element={<CategoryCard/>}/>
+
+        <Route path="/products" element = {<MainContent/>}/>
+
+        <Route exact path="/login" element={<Login/>}/>
+
+        <PrivateRoute path="/wishlist">
+          <WishlistStore/>
+        </PrivateRoute> 
+
+        <privateRoute path="/cart">
+          <Cart/>
+        </privateRoute>
+
+      </Routes>
+    </div>
+    </div>
+  );
+}
+      
+
+
+
+

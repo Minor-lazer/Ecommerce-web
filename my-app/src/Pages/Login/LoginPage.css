@@ -1,0 +1,126 @@
+
+.row {
+    display: flex;
+    gap: 10rem;
+  }
+  input {
+    position: relative;
+  }
+
+  .form-body {     
+  text-align:element;
+  }
+  
+  .Login-box 
+  {
+      border-radius: "3px solid black";
+      justify-content: center;
+  }
+
+  .input-txt {
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    resize: none;
+    padding: 1rem 1rem;
+    margin: 1rem;
+    border: 2px solid var(--dk-violet);
+    border-radius: 0.5rem;
+    width: 100%;
+    max-width: 300px;
+    position: relative;
+  }
+  
+  .input-txt:hover {
+    box-shadow: 0 0 1rem var(--dk-violet);
+  }
+  
+  .input-txt-error {
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    resize: none;
+    padding: 1rem 1rem;
+    margin: 1rem;
+    border: 2px solid var(--dk-pink);
+    border-radius: 0.5rem;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: var(--tertiary-box-shadow);
+  }
+  
+  .input-txt-error:hover {
+    box-shadow: 0 0 1rem var(--dk-pink);
+  }
+  
+  .fit-label {
+    position: relative;
+    pointer-events: none;
+    left: 39px;
+    bottom: 50px;
+    transition: 0.2s ease all;
+    color: var(--primary-color);
+  }
+  
+  .fit-label-error {
+    position: absolute;
+    pointer-events: none;
+    left: 35px;
+    top: 31px;
+    transition: 0.2s ease all;
+  }
+  
+  .fit-label-txtarea {
+    position: relative;
+    pointer-events: none;
+    left: 2rem;
+    bottom: 13rem;
+    transition: 0.2s ease all;
+    color: var(--primary-color);
+  }
+  
+  .input-txt-warning {
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    resize: none;
+    padding: 1rem 1rem;
+    margin: 1rem;
+    border: 2px solid var(--dk-yellow);
+    border-radius: 0.5rem;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: var(--tertiary-box-shadow);
+  }
+  
+  .input-txt-warning:hover {
+    box-shadow: 0rem 0rem 1rem var(--dk-yellow);
+  }
+  
+  .input-txt-area {
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    resize: none;
+    padding: 6rem 0rem;
+    margin: 1rem;
+    border: 2px solid var(--dk-green);
+    border-radius: 0.5rem;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: var(--tertiary-box-shadow);
+  }
+  
+  .input-txt-area:hover {
+    box-shadow: 0 0 1rem var(--dk-green);
+  }
+
+@media only screen and (max-width: 500px) {
+	.social-login .btn{
+        width: 33%;
+        margin: 0rem;
+        padding:  0.4rem 0.2rem;
+        font-size: 0.8rem;
+        overflow: hidden;
+    }
+}

@@ -1,0 +1,20 @@
+.header
+{
+    background-color: black;
+    display:flex;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+.header_options
+{
+    display:flex;  
+    justify-content: space-between;
+}
+
+.amazon_logo
+{
+    width:10rem;
+    height:10rem;
+}

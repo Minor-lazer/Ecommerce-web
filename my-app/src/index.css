@@ -1,4 +1,29 @@
+:root {
+  --primary-color: #09d3ac;
+  --secondary-color: #c6f2d6;
+  --tertiary-color: #f3f4f6;
+  --body-color: #c88cff;
+  --white-color: #fff;
+  --grey-color: #9ca3af;
+  --lt-blue: #adeef1;
+  --dk-blue: #11a8d5;
+  --lt-green: #d1fae5;
+  --dk-green: #10b981;
+  --lt-pink: #fbcfe8;
+  --dk-pink: #f50057;
+  --lt-yellow: #fef3c7;
+  --dk-yellow: #fbbf24;
+  --lt-violet: #99aaff;
+  --dk-violet: #5555e0;
+  --primary-box-shadow: 8px 8px 16px #dfe7ed, -8px -8px 16px #ffffff;
+  --secondary-box-shadow: 2px 4px 20px -1px rgb(0 0 0 / 3%),
+    -1px -2px 20px -1px rgb(0 0 0 / 3%);
+  --tertiary-box-shadow: 6.61px 6.61px 9px #e6eef5, -6.61px -6.61px 9px #faffff;
+}
+
+
 body {
+  background-color: whitesmoke;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
